@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shreya Bhattacharya — Resume</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Google+Sans+Text:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -278,12 +284,42 @@
   <div class="name">Shreya Bhattacharya</div>
   <div class="tagline">Product &amp; Data · Zomato · IIT Kanpur</div>
   <div class="contacts">
-    <a href="mailto:pvt.shreyabhattacharya@gmail.com">pvt.shreyabhattacharya@gmail.com</a>
+    <a id="email-link" href="#" title="Click to copy email">Email</a>
     <a href="https://linkedin.com/in/shreyabhatta" target="_blank">LinkedIn</a>
     <a href="https://twitter.com/shreyabhatta" target="_blank">Twitter</a>
     <a href="https://shreyabhatta.substack.com" target="_blank">Substack</a>
     <a href="#">Website</a>
   </div>
+  <div id="email-toast" style="
+    display:none;
+    position:fixed;
+    bottom:28px;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(11,46,51,0.92);
+    color:#B8E3E9;
+    font-size:12.5px;
+    padding:10px 20px;
+    border-radius:6px;
+    letter-spacing:0.3px;
+    z-index:999;
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(184,227,233,0.15);
+    pointer-events:none;
+  ">📋 Email copied to clipboard</div>
+  <script>
+    document.getElementById('email-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = ['pvt.shreyabhattacharya', 'gmail.com'].join('@');
+      navigator.clipboard.writeText(email).then(function() {
+        var toast = document.getElementById('email-toast');
+        toast.style.display = 'block';
+        setTimeout(function() { toast.style.display = 'none'; }, 2200);
+      }).catch(function() {
+        window.location.href = 'mailto:' + email;
+      });
+    });
+  </script>
 </header>
 
 <div class="wrapper">
@@ -453,13 +489,4 @@
         <div class="extra-role">Project Mentor</div>
         <div class="extra-org">Stamatics, IIT Kanpur</div>
         <ul style="margin-top:5px;">
-          <li>Mentored 100+ students in probability theory, statistics, modelling and visualisation techniques.</li>
-        </ul>
-      </div>
-    </section>
-
-  </aside>
-
-</div>
-</body>
-</html>
+          <li>Mentored 100+ studen
