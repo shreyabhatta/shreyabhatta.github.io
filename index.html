@@ -4,9 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shreya Bhattacharya</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap" rel="stylesheet" />
   <style>
     :root {
       --teal1: #e0f2f1;
@@ -47,7 +52,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     html { overflow-x: hidden; }
-    body { font-family: 'Google Sans Flex', sans-serif; font-size: 16px; background: var(--teal1); color: var(--ink); overflow-x: hidden; cursor: none; }
+    body { font-family: 'Nunito Sans', sans-serif; font-size: 16px; background: var(--teal1); color: var(--ink); overflow-x: hidden; cursor: none; }
 
     /* Custom cursor — dot snaps instantly, ring trails via JS rAF */
     .cursor { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
@@ -57,7 +62,7 @@
     /* Nav */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 5rem; display: flex; justify-content: space-between; align-items: center; background: transparent; border-bottom: none; transition: background 0.3s, box-shadow 0.3s, border-color 0.3s; }
     nav.scrolled { background: rgba(224,242,241,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(0,77,64,0.12); }
-    .nav-logo { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: 0.01em; color: var(--dark-brown); text-decoration: none; }
+    .nav-logo { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: 0.01em; color: var(--dark-brown); text-decoration: none; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; font-weight: 600; }
     .nav-links a:hover { color: var(--orange); }
@@ -67,13 +72,13 @@
     .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 5rem 7rem; position: relative; z-index: 2; }
     .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--burgundy); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem; font-weight: 500; }
     .hero-eyebrow::before { content: ''; display: block; width: 3rem; height: 1px; background: var(--pink); }
-    h1.hero-name { font-family: 'Google Sans Flex', sans-serif; font-size: clamp(3.8rem, 7vw, 8rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 2.5rem; }
+    h1.hero-name { font-family: 'Nunito Sans', sans-serif; font-size: clamp(3.8rem, 7vw, 8rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 2.5rem; }
     h1.hero-name em { font-style: normal; color: var(--burgundy); display: block; }
     .hero-desc { font-size: 1.05rem; line-height: 1.8; color: var(--muted); max-width: 420px; font-weight: 400; margin-bottom: 3.5rem; }
     .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--burgundy); color: #fff; padding: 0.9rem 2.2rem; font-family: 'Google Sans Flex', sans-serif; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: background 0.25s, transform 0.25s; display: inline-block; font-weight: 500; border-radius: 4px; }
+    .btn-primary { background: var(--burgundy); color: #fff; padding: 0.9rem 2.2rem; font-family: 'Nunito Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: background 0.25s, transform 0.25s; display: inline-block; font-weight: 500; border-radius: 4px; }
     .btn-primary:hover { background: var(--dark-green); transform: translateY(-2px); }
-    .btn-ghost { border: 1.5px solid var(--border); color: var(--muted); padding: 0.9rem 2.2rem; font-family: 'Google Sans Flex', sans-serif; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: border-color 0.25s, color 0.25s, transform 0.25s; display: inline-block; font-weight: 500; border-radius: 4px; }
+    .btn-ghost { border: 1.5px solid var(--border); color: var(--muted); padding: 0.9rem 2.2rem; font-family: 'Nunito Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: border-color 0.25s, color 0.25s, transform 0.25s; display: inline-block; font-weight: 500; border-radius: 4px; }
     .btn-ghost:hover { border-color: var(--burgundy); color: var(--burgundy); transform: translateY(-2px); }
 
     /* HERO RIGHT — 3×3 image grid, square with padding */
@@ -96,8 +101,8 @@
     section { padding: 6rem 0; margin: 0; }
     * + section { margin-top: 0; }
     .section-header { display: flex; align-items: center; gap: 2rem; margin-bottom: 5rem; }
-    .section-number { font-family: 'Google Sans Flex', sans-serif; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.04em; flex-shrink: 0; font-weight: 600; }
-    .section-title { font-family: 'Google Sans Flex', sans-serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
+    .section-number { font-family: 'Nunito Sans', sans-serif; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.04em; flex-shrink: 0; font-weight: 600; }
+    .section-title { font-family: 'Nunito Sans', sans-serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
     /* ABOUT */
@@ -108,7 +113,7 @@
     .about-frame::after { content: ''; position: absolute; inset: 0; border: 3px solid var(--burgundy); pointer-events: none; border-radius: 2px; mix-blend-mode: multiply; }
     .about-resume-cta { margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: rgba(0,121,107,0.06); border: 1px solid var(--border); border-radius: 4px; }
     .about-resume-cta p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; }
-    .about-pull { font-family: 'Google Sans Flex', sans-serif; font-size: 1.35rem; font-weight: 600; line-height: 1.5; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 2rem; }
+    .about-pull { font-family: 'Nunito Sans', sans-serif; font-size: 1.35rem; font-weight: 600; line-height: 1.5; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 2rem; }
     .about-body { font-size: 1rem; line-height: 1.85; color: var(--muted); font-weight: 400; margin-bottom: 1.25rem; }
     .about-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
     .pill { background: rgba(0,121,107,0.1); border: 1px solid var(--border); padding: 0.35rem 0.9rem; font-size: 0.78rem; letter-spacing: 0.02em; color: var(--burgundy); font-weight: 500; border-radius: 20px; }
@@ -129,7 +134,7 @@
     .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 4rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .exp-date { font-size: 0.78rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; font-weight: 600; }
     .exp-company { font-size: 0.9rem; color: var(--muted); font-weight: 400; }
-    .exp-role { font-family: 'Google Sans Flex', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; line-height: 1.2; }
+    .exp-role { font-family: 'Nunito Sans', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; line-height: 1.2; }
     .exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
     .exp-points li { font-size: 0.95rem; color: var(--muted); line-height: 1.75; padding-left: 1.3rem; position: relative; font-weight: 400; }
     .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 0.2rem; }
@@ -146,7 +151,7 @@
     .skill-card:hover { background: var(--cream-pale); transform: translateY(-6px) scale(1.02); box-shadow: 0 16px 40px rgba(0,77,64,0.13); z-index: 2; }
     .skill-glyph { font-size: 1.5rem; margin-bottom: 1.5rem; display: block; color: var(--accent); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
     .skill-card:hover .skill-glyph { transform: scale(1.25) rotate(-5deg); }
-    .skill-name { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1rem; }
+    .skill-name { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1rem; }
     .skill-items { display: flex; flex-direction: column; gap: 0.5rem; }
     .skill-item { font-size: 0.88rem; color: var(--muted); letter-spacing: 0; font-weight: 400; }
     .skill-item.lit { color: var(--ink); font-weight: 500; }
@@ -158,8 +163,8 @@
     .project-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
     .project-card:hover::after { transform: scaleX(1); }
     .project-card:hover { background: var(--bg2); }
-    .project-num { font-family: 'Google Sans Flex', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 0.75rem; letter-spacing: -0.04em; }
-    .project-title { font-family: 'Google Sans Flex', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.8rem; line-height: 1.3; }
+    .project-num { font-family: 'Nunito Sans', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 0.75rem; letter-spacing: -0.04em; }
+    .project-title { font-family: 'Nunito Sans', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.8rem; line-height: 1.3; }
     .project-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.75; font-weight: 400; margin-bottom: 1.5rem; }
     .project-link { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; }
     .project-link::after { content: ' →'; }
@@ -167,7 +172,7 @@
     /* WRITING */
     #writing { background: var(--bg7); }
     .writing-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem; align-items: end; }
-    .writing-quote { font-family: 'Google Sans Flex', sans-serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.5; color: var(--ink); }
+    .writing-quote { font-family: 'Nunito Sans', sans-serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.5; color: var(--ink); }
     .writing-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.85; font-weight: 400; }
     #substack-posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; min-height: 280px; }
     .post-card { border: 1px solid var(--border); padding: 2rem; background: var(--card-bg); transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; display: block; position: relative; overflow: hidden; }
@@ -175,13 +180,13 @@
     .post-card:hover::before { transform: scaleX(1); }
     .post-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,121,107,0.1); }
     .post-date { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; font-weight: 600; }
-    .post-title { font-family: 'Google Sans Flex', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.35; margin-bottom: 0.75rem; }
+    .post-title { font-family: 'Nunito Sans', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.35; margin-bottom: 0.75rem; }
     .post-excerpt { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-weight: 400; }
     .post-read { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1.5rem; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
     .post-read::after { content: ' →'; }
     .loading-posts { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.9rem; grid-column: 1 / -1; min-height: 200px; }
     .writing-cta { text-align: center; margin-top: 3rem; }
-    .writing-cta-label { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .writing-cta-label { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: var(--muted); margin-bottom: 1.5rem; }
 
     /* INTERESTS */
     #interests { background: var(--bg8); }
@@ -193,21 +198,22 @@
     .interest-item:last-child { border-right: none; }
     .interest-item:hover { background: var(--bg7); }
     .interest-glyph { font-size: 1.8rem; margin-bottom: 1.5rem; display: block; }
-    .interest-name { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 0.75rem; }
+    .interest-name { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 0.75rem; }
     .interest-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-weight: 400; }
 
     /* CONTACT */
     #contact { background: var(--bg9); }
     .contact-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
-    .contact-headline { font-family: 'Google Sans Flex', sans-serif; font-size: clamp(2.4rem, 4.5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 1.5rem; }
+    .contact-headline { font-family: 'Nunito Sans', sans-serif; font-size: clamp(2.4rem, 4.5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 1.5rem; }
     .contact-headline em { color: var(--accent); font-style: normal; }
     .contact-tagline { font-size: 1rem; color: var(--muted); line-height: 1.8; font-weight: 400; max-width: 480px; margin-bottom: 3.5rem; }
     .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .contact-link { color: var(--ink); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border: 1.5px solid var(--border); transition: border-color 0.2s, color 0.2s; font-weight: 500; border-radius: 2px; }
+    .contact-link { color: var(--ink); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border: 1.5px solid var(--border); transition: border-color 0.2s, color 0.2s, background 0.2s; font-weight: 500; border-radius: 2px; cursor: pointer; background: none; font-family: 'Nunito Sans', sans-serif; display: inline-block; }
     .contact-link:hover { border-color: var(--accent); color: var(--accent); }
     .contact-link.filled { background: var(--accent); color: #fff; border-color: var(--accent); }
     .contact-link.filled:hover { background: var(--dark-green); border-color: var(--dark-green); color: #fff; }
-    .contact-email { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; color: var(--muted); font-weight: 400; }
+    .contact-link.copied { background: var(--dark-green); border-color: var(--dark-green); color: #fff; }
+    .contact-email { font-family: 'Nunito Sans', sans-serif; font-size: 1rem; color: var(--muted); font-weight: 400; }
     .contact-email a { color: var(--accent); text-decoration: none; font-weight: 500; }
     .contact-photo { aspect-ratio: 1/1; overflow: hidden; border-radius: 2px; max-width: 380px; width: 100%; }
     .contact-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.95); }
@@ -391,9 +397,7 @@
         <em>Bhattacharya</em>
       </h1>
       <p class="hero-desc">
-        Product Analyst at Zomato. 
-        <br>
-        Taking fuzzy product problems and figuring out what to build next.
+        Product Analyst at Zomato. I turn messy data into decisions that move the product — from discovery algorithms to recommendation models. IIT Kanpur, 2024.
       </p>
       <div class="hero-ctas">
         <a href="#experience" class="btn-primary">View My Work</a>
@@ -404,39 +408,39 @@
       <div class="hero-grid-wrap">
         <div class="hero-grid">
         <div class="grid-cell">
-          <img src="img/hero-bg.jpeg" alt="Analytics" />
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="Analytics" />
           <div class="grid-overlay"><span class="grid-label">Data</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/about.jpeg" alt="Books" />
+          <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&q=80" alt="Books" />
           <div class="grid-overlay"><span class="grid-label">Books</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/as_we_leave.png" alt="Music" />
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80" alt="Music" />
           <div class="grid-overlay"><span class="grid-label">Music</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/team-2.jpeg" alt="Art" />
+          <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&q=80" alt="Art" />
           <div class="grid-overlay"><span class="grid-label">Art</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/team-4.jpeg" alt="Product" />
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80" alt="Product" />
           <div class="grid-overlay"><span class="grid-label">Product</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/contact.jpeg" alt="Travel" />
+          <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&q=80" alt="Travel" />
           <div class="grid-overlay"><span class="grid-label">Explore</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/about2.jpg" alt="IIT Kanpur" />
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="IIT Kanpur" />
           <div class="grid-overlay"><span class="grid-label">IIT Kanpur</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/team-3.jpg" alt="Tech" />
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=80" alt="Tech" />
           <div class="grid-overlay"><span class="grid-label">Tech</span></div>
         </div>
         <div class="grid-cell">
-          <img src="img/team-1.jpeg" alt="Culture" />
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&q=80" alt="Culture" />
           <div class="grid-overlay"><span class="grid-label">Culture</span></div>
         </div>
       </div>
@@ -453,7 +457,7 @@
       <div class="about-grid">
         <div class="about-visual fade-up">
           <div class="about-frame">
-            <img src="img/hero2.png" alt="Shreya Bhattacharya" style="width:100%;height:100%;object-fit:cover;display:block;" />
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Shreya Bhattacharya" style="width:100%;height:100%;object-fit:cover;display:block;" />
           </div>
           <div class="about-resume-cta">
             <p>Interested to know more?</p>
@@ -462,13 +466,14 @@
         </div>
         <div class="fade-up">
           <p class="about-pull">"I like making sense of messy problems."</p>
-          <p class="about-body">I'm currently part of Zomato's Consumer Product team, where I work at the intersection of data, experimentation, and product strategy. I've owned analytics end-to-end for numerous features, from defining metrics and running A/B tests to building recommendation algorithms and shipping ML models to production.</p>
+          <p class="about-body">I'm a Product Analyst at Zomato's Consumer Product team, where I work at the intersection of data, experimentation, and product strategy. I've owned analytics end-to-end for 9+ features — from defining metrics and running A/B tests to building recommendation algorithms and shipping ML models to production.</p>
           <p class="about-body">My work spans the full consumer funnel: homepage discovery, search &amp; autosuggest, restaurant catalogue, cart, live order tracking, post-delivery, and Zomato Gold. I've also worked on Flywheel (Zomato's off-platform Social Ads product), where I built audience cohorts and owned all data pipelines powering Meta &amp; Google campaigns for 300+ brands.</p>
-          <p class="about-body">I graduated with a B.Tech from IIT Kanpur. Outside of work, I read obsessively, hold a diploma in Indian Classical Vocal Music, paint, and am a serial coffee enthusiast.</p>
+          <p class="about-body">I graduated with a B.Tech in Materials Science &amp; Engineering from IIT Kanpur (2024, CPI 8.0/10). Outside of work, I read obsessively, hold a diploma in Indian Classical Vocal Music, paint, and am slowly becoming a polyglot — A1 certified in German, with Spanish and Tamil on the list.</p>
           <div class="about-pills">
+            <span class="pill">Python · SQL · PySpark</span>
+            <span class="pill">A/B Testing</span>
             <span class="pill">Product Strategy</span>
             <span class="pill">ML Modelling</span>
-            <span class="pill">A/B Testing</span>
             <span class="pill">IIT Kanpur 2024</span>
           </div>
         </div>
@@ -491,10 +496,15 @@
             <div class="exp-company">Zomato · Gurugram</div>
           </div>
           <div>
-            <h3 class="exp-role">Product Analyst</h3>
+            <h3 class="exp-role">Product Analyst — Consumer Product &amp; Social Ads</h3>
             <ul class="exp-points">
-              <li><strong>Consumer Product Team:</strong> Built algorithms powering discovery on app, led growth experiments throughout major touchpoints of the app.</li>
-              <li><strong>Social Ads:</strong> Built and curated relevant target audiences for campaign optimization , owned all pipelines and reporting for off-platform Meta &amp; Google campaigns.</li>
+              <li><strong>VIP Mode (0→1):</strong> Identified painful cohorts, defined logic and placement, ran design experiments, set up tracking end-to-end. Live on platform — ~₹55 incremental NMPO per order, ~0.5% order share.</li>
+              <li><strong>Kitchen Prep Time (KPT) Model:</strong> Revamped the ML model using dynamic restaurant clustering and time-based feature engineering (Gradient Boosting Regressor). MSE dropped from 4.1 → 0.7; 2-min SLA breaches reduced by 8%.</li>
+              <li><strong>Near &amp; Fast (Distance Reduction):</strong> Reworked ETA algorithms, defined "painful breach" thresholds, ran targeted city-level experiments — drove +1% relative uplift in Order Completion Rate.</li>
+              <li><strong>Best Dish Discovery:</strong> Built Top Dish recommendation model for homepage rail via EDA and cohort-level simulations; improved discovery, exploration, and new-to-restaurant order share.</li>
+              <li><strong>CRM Notification Pipeline:</strong> Built an end-to-end pipeline for personalised, real-time user communications across key lifecycle touchpoints for Zomato Everyday.</li>
+              <li><strong>Consumer Revamps:</strong> Led A/B testing and CRO across homepage, autosuggest, catalogue snackbar, cart add-ons, live activity, CSAO, and Zomato Gold subscription funnel.</li>
+              <li><strong>Flywheel / Social Ads:</strong> Designed audience cohorts using 1P behavioural signals; owned all data pipelines and dashboards for off-platform Meta &amp; Google campaigns serving 300+ brands and ~10K+ daily attributed orders.</li>
             </ul>
             <div class="exp-badges">
               <span class="badge">Consumer Product</span>
@@ -515,8 +525,10 @@
             <h3 class="exp-role">Data Analytics &amp; Strategy Intern — CEO's Office</h3>
             <ul class="exp-points">
               <li>Received the <strong>Kapiva Innovation Award</strong> for Q2-2023 performance.</li>
-              <li>Strategized the organizational restructuring of the company to streamline operations and maximize efficiency. Facilitated data-driven decisions by evaluating net promoter score, churn rate, customer outreach & product reviews.</li>
-
+              <li>Analysed 350K+ customer records across 5 channels using numpy, pandas, and SQL to identify churn patterns, NPS bottlenecks, and customer outreach issues.</li>
+              <li>Conducted RCA on 4 unique customer experience cases and identified actionable interventions — over 10 effective improvements identified from NPS analysis on 1.5K+ customers.</li>
+              <li>Benchmarked operations against 7 similar startups through competitive analysis; findings drove the launch of a new <strong>Tech-Product vertical</strong> and revised reporting structures.</li>
+              <li>Executed market segment analysis across 7 key Indian healthcare segments to determine TAM and CAGR.</li>
             </ul>
             <div class="exp-badges"><span class="badge">Strategy</span><span class="badge">Churn Analysis</span><span class="badge">NPS</span><span class="badge">Market Research</span></div>
           </div>
@@ -529,8 +541,9 @@
           <div>
             <h3 class="exp-role">R&amp;D Intern — NLP</h3>
             <ul class="exp-points">
-              <li>Optimized NER models tailored for legal text analysis. Applied information extraction techniques to analyse unstructured legal texts.</li>
-
+              <li>Built NLP models using spaCy for Named Entity Recognition on unstructured legal text (petition numbers, parties, clauses).</li>
+              <li>Evaluated 475+ legal documents; improved pre-existing model accuracy from <strong>35% → 80%</strong> through targeted training optimisation.</li>
+              <li>Extracted petition numbers with 90% accuracy via deployed spaCy NER pipeline.</li>
             </ul>
             <div class="exp-badges"><span class="badge">NLP</span><span class="badge">spaCy</span><span class="badge">Python</span><span class="badge">Information Extraction</span></div>
           </div>
@@ -554,12 +567,15 @@
             <div class="exp-company">IIT Kanpur</div>
           </div>
           <div>
-            <h3 class="exp-role">Bachelors in Technology</h3>
+            <h3 class="exp-role">B.Tech — Materials Science &amp; Engineering</h3>
             <ul class="exp-points">
-              <li><strong>Specialization:</strong> Materials Science &amp; Engineering, Received: 8.0 / 10.0</li>
-              <li><strong>Courses I loved: </strong>Human Computer Interaction, Introduction to Cognitive Science, Cognitive Neuroscience, Advanced Statistical Methods for Business Analytics, Responsible Dissent, Financial Management, Material Science Technologies for Application in Life Sciences, Introduction to Psychology</li>
-              <li><strong>Activities:</strong> Head, Media &amp; Publicity in Techkriti'23, Coordinator of Fine Arts Club</li>
+              <li>CPI: <strong>8.0 / 10.0</strong></li>
+              <li>Relevant coursework: Advanced Statistical Methods, Python for Data Science, Probability &amp; Statistics, Linear Algebra &amp; ODE, Data Structures &amp; Algorithms, Object Oriented Programming, Introduction to Cognitive Science.</li>
+              <li><strong>Head, Media &amp; Publicity — Techkriti'23:</strong> Led a 120+ member team across 4 tiers for Asia's largest technical &amp; entrepreneurial festival (budget: ₹2 Cr). Garnered 1.5M+ additional reach through revamped social strategies; managed collaborations with Big FM, Zee News, Dailyhunt, and Carnival Cinemas.</li>
+              <li><strong>Coordinator, Fine Arts Club:</strong> Led team, managed operations and events with a budget of ₹1.5L; led the Fine Arts contingent at Inter IIT Cult Meet 5.0 and Thomso'22.</li>
+              <li><strong>Project Mentor, Stamatics:</strong> Mentored 105 students in probability theory, statistics, data preprocessing, and ML algorithms including linear/logistic regression, decision trees, and Naive Bayes.</li>
             </ul>
+            <div class="exp-badges"><span class="badge">IIT Kanpur</span><span class="badge">Statistics</span><span class="badge">DSA</span><span class="badge">Leadership</span></div>
 
 
           </div>
@@ -570,23 +586,9 @@
             <div class="exp-company">DPS Bokaro Steel City</div>
           </div>
           <div>
-            <h3 class="exp-role">Class XII, CBSE</h3>
+            <h3 class="exp-role">Class XII — CBSE</h3>
             <ul class="exp-points">
-              <li><strong>Received: 96.0%</strong> — Physics, Chemistry, Maths, English, Hindustani Vocal Music.</li>
-              <li>Awarded <strong>gold medal</strong> for extra ordinary academic performance for 6 consecutive years</li>
-            </ul>
-          </div>
-        </div>
-        <div class="exp-item fade-up">
-          <div>
-            <div class="exp-date">2018</div>
-            <div class="exp-company">DPS Bokaro Steel City</div>
-          </div>
-          <div>
-            <h3 class="exp-role">Class X, CBSE</h3>
-            <ul class="exp-points">
-              <li><strong>Received: 96.2%</strong> —  Social Science, Science, Maths, English, Sanskrit.</li>
-              <li><strong>Activities:</strong> Vocal Music, Arts and Craft, Science Olympiads</li>
+              <li>Score: <strong>96.0%</strong> — Physics, Chemistry, Maths, English, Hindustani Vocal Music.</li>
             </ul>
           </div>
         </div>
@@ -605,11 +607,11 @@
       <div class="skills-grid fade-up">
         <div class="skill-card">
           <span class="skill-glyph">◈</span>
-          <div class="skill-name">Product</div>
+          <div class="skill-name">Product Analytics</div>
           <div class="skill-items">
-            <span class="skill-item">A/B Testing &amp; Experimentation</span>
-            <span class="skill-item">Metrics Design &amp; RCA</span>
-            <span class="skill-item">Funnel Analysis</span>
+            <span class="skill-item lit">A/B Testing &amp; Experimentation</span>
+            <span class="skill-item lit">Metrics Design &amp; RCA</span>
+            <span class="skill-item">Funnel Analysis &amp; CRO</span>
             <span class="skill-item">Product Strategy</span>
           </div>
         </div>
@@ -617,30 +619,30 @@
           <span class="skill-glyph">◎</span>
           <div class="skill-name">Data Science</div>
           <div class="skill-items">
-            <span class="skill-item">Gradient Boosting, XGBoost</span>
-            <span class="skill-item">Statistical Modelling</span>
+            <span class="skill-item lit">Gradient Boosting, XGBoost</span>
+            <span class="skill-item lit">Statistical Modelling</span>
             <span class="skill-item">Clustering &amp; Segmentation</span>
-            <span class="skill-item">Feature Engineering</span>
+            <span class="skill-item">NLP &amp; Feature Engineering</span>
           </div>
         </div>
         <div class="skill-card">
           <span class="skill-glyph">⬡</span>
           <div class="skill-name">Engineering</div>
           <div class="skill-items">
-            <span class="skill-item">Python, SQL, R</span>
-            <span class="skill-item">PySpark, Kafka, Optimization</span>
-            <span class="skill-item">Data Cleaning and Transformation</span>
-            <span class="skill-item">ETL Pipeline Design</span>, 
+            <span class="skill-item lit">Python, SQL, R</span>
+            <span class="skill-item lit">PySpark, Kafka, Airflow</span>
+            <span class="skill-item">Druid, Flink, Superset</span>
+            <span class="skill-item">ETL Pipeline Design</span>
           </div>
         </div>
         <div class="skill-card">
           <span class="skill-glyph">◻</span>
           <div class="skill-name">Tools &amp; Craft</div>
           <div class="skill-items">
-            <span class="skill-item">Figma, Power BI, Tableau, </span>
-            <span class="skill-item">Git, Google Analytics</span>
-            <span class="skill-item">Superset, Confluence</span>
-            <span class="skill-item">Excel, Jupyter, Google Collab</span>
+            <span class="skill-item lit">Power BI, Tableau, Figma</span>
+            <span class="skill-item">Google Analytics, Git</span>
+            <span class="skill-item">Asana, Confluence</span>
+            <span class="skill-item">Excel, Jupyter</span>
           </div>
         </div>
       </div>
@@ -706,7 +708,7 @@
       </div>
       <div class="writing-intro fade-up">
         <p class="writing-quote">"Writing is how I make sense of the mess."</p>
-        <p class="writing-sub">I write on Substack about tech, books, and culture, and the quiet observations in between. It's where I think out loud about the products I build, things I read, and what it all means.</p>
+        <p class="writing-sub">I write on Substack about tech, books, and culture — and the quiet observations in between. It's where I think out loud about the products I build, things I read, and what it all means.</p>
       </div>
       <div id="substack-posts">
         <div class="loading-posts">Loading articles from Substack…</div>
@@ -730,22 +732,22 @@
         <div class="interest-item">
           <span class="interest-glyph">♩</span>
           <div class="interest-name">Music</div>
-          <p class="interest-desc">Trained in Indian Classical Music (Sangeet Visharad). Sometimes play ukulele, keyboard, harmonium, and Hawaiian guitar.</p>
+          <p class="interest-desc">Sangeet Visharad (Diploma) in Indian Classical Vocal Music. Also ukulele, keyboard, harmonium, Hawaiian guitar. Performs at offsites and informal concerts.</p>
         </div>
         <div class="interest-item">
           <span class="interest-glyph">◉</span>
           <div class="interest-name">Reading</div>
-          <p class="interest-desc">Read across fiction and nonfiction; books and articles on tech, design, politics, philosophy, and sociology. Writing is how I make sense of the mess.</p>
+          <p class="interest-desc">Reads across fiction and nonfiction — tech, design, politics, philosophy, sociology. Believes books are the best way to understand how the world actually works.</p>
         </div>
         <div class="interest-item">
           <span class="interest-glyph">⬤</span>
           <div class="interest-name">Fine Arts</div>
-          <p class="interest-desc">Pencil sketching, acrylic, watercolour, and art installations. Firmly not an origami person. Headed Fine Arts Club at IIT Kanpur.</p>
+          <p class="interest-desc">Pencil sketching, acrylic, watercolour, and oil painting. Built art installations. Coordinated Fine Arts Club at IIT Kanpur. Firmly not an origami person.</p>
         </div>
         <div class="interest-item">
           <span class="interest-glyph">◈</span>
           <div class="interest-name">Languages</div>
-          <p class="interest-desc">Currently learning German (A1 certified). An aspiring polyglot. Spanish and Tamil are next on the list. Fluent in English, Hindi, and Bangla.</p>
+          <p class="interest-desc">Fluent in English, Hindi, and Bangla. A1 certified in German. Aspiring polyglot — Spanish and Tamil are next on the list.</p>
         </div>
       </div>
     </div>
@@ -762,18 +764,19 @@
       <div class="contact-layout">
         <div class="fade-up">
           <h2 class="contact-headline">Let's build<br /><em>something good.</em></h2>
-          <p class="contact-tagline">Open to product data science and product manager roles. Also happy to talk books, data, or anything in between.</p>
+          <p class="contact-tagline">Open to product analytics, data science, and PM roles. Also happy to talk books, data, or anything in between.</p>
           <div class="contact-links">
+            <button class="contact-link filled" id="copyEmailBtn" onclick="copyEmail()">
+              <span id="copyEmailLabel">Email Me</span>
+            </button>
             <a href="https://linkedin.com/in/shreyabhatta" target="_blank" class="contact-link">LinkedIn</a>
             <a href="https://substack.com/@bhatta20/posts" target="_blank" class="contact-link">Substack</a>
             <a href="https://github.com/shreyabhatta" target="_blank" class="contact-link">GitHub</a>
-            <br>
-            <a href="https://twitter.com/shreyabhatta" target="_blank" class="contact-link">X</a>
-            <a href="https://www.instagram.com/bhatta.i.am" target="_blank" class="contact-link">Instagram</a>
+            <a href="https://twitter.com/shreyabhatta" target="_blank" class="contact-link">Twitter / X</a>
           </div>
         </div>
         <div class="contact-photo fade-up">
-          <img src="img/hero.png" alt="Shreya Bhattacharya" />
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80" alt="Shreya Bhattacharya" />
         </div>
       </div>
     </div>
@@ -905,13 +908,13 @@
           <a class="post-card fade-up visible" href="https://substack.com/@bhatta20/p-182590949" target="_blank">
             <div class="post-date">Recent</div>
             <div class="post-title">Economics of Being Human</div>
-            <p class="post-excerpt">What stayed with me after reading Kafka's The Metamorphosis</p>
+            <p class="post-excerpt">What stayed with me after reading Kafka's The Metamorphosis — on transformation, identity, and what we owe each other.</p>
             <span class="post-read">Read on Substack</span>
           </a>
           <a class="post-card fade-up visible" href="https://voxiitk.com/as-we-leave-2024-31/" target="_blank">
             <div class="post-date">2024</div>
             <div class="post-title">A Letter to My First-Year Self</div>
-            <p class="post-excerpt">A reflection on four years at IIT Kanpur. The journey, the becoming, and what comes next. Published in Vox Populi, IITK.</p>
+            <p class="post-excerpt">A reflection on four years at IIT Kanpur — the journey, the becoming, and what comes next. Published in Vox Populi, IITK.</p>
             <span class="post-read">Read Article</span>
           </a>
           <div class="post-card fade-up visible" style="background:transparent; border-style:dashed; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:1rem;">
@@ -921,6 +924,37 @@
       }
     }
     loadSubstack();
+
+    // ── Copy email to clipboard ────────────────────────────────────
+    function copyEmail() {
+      const email = 'pvt.shreyabhattacharya@gmail.com';
+      const btn   = document.getElementById('copyEmailBtn');
+      const label = document.getElementById('copyEmailLabel');
+      navigator.clipboard.writeText(email).then(function() {
+        btn.classList.add('copied');
+        label.textContent = 'Copied!';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          label.textContent = 'Email Me';
+        }, 2000);
+      }).catch(function() {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.classList.add('copied');
+        label.textContent = 'Copied!';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          label.textContent = 'Email Me';
+        }, 2000);
+      });
+    }
   </script>
 
 </body>
