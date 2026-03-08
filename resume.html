@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shreya Bhattacharya — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Google+Sans+Text:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #edf8fa;
+    --mid:        #93B1B5;
+    --teal:       #4F7C82;
+    --dark:       #0B2E33;
+    --light-teal: #B8E3E9;
+    --ink:        #0B2E33;
+    --muted:      #4F7C82;
+    --tag-bg:     #d2ecf0;
+    --divider:    #b8d8dd;
+    --header-bg:  #0B2E33;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Google Sans Text', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--header-bg);
+    color: #fff;
+    padding: 52px 64px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--light-teal), var(--teal));
+  }
+  header::before {
+    content: 'SB';
+    font-family: 'DM Serif Display', serif;
+    font-size: 200px;
+    color: rgba(184,227,233,0.06);
+    position: absolute;
+    right: 48px;
+    top: -24px;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 46px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .tagline {
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--light-teal);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    opacity: 0.8;
+  }
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .contacts a {
+    color: rgba(184,227,233,0.78);
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 400;
+    transition: color 0.2s;
+    padding: 0 14px;
+    border-right: 1px solid rgba(184,227,233,0.18);
+  }
+  .contacts a:first-child { padding-left: 0; }
+  .contacts a:last-child { border-right: none; }
+  .contacts a:hover { color: var(--light-teal); }
+
+  /* LAYOUT */
+  .wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 48px 64px;
+    display: grid;
+    grid-template-columns: 1fr 272px;
+    gap: 0 44px;
+  }
+
+  section { padding-top: 34px; }
+
+  .section-label {
+    font-size: 9.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--divider);
+  }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 26px; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+  .job-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+  .job-period {
+    font-size: 11.5px;
+    color: var(--mid);
+    white-space: nowrap;
+  }
+  .job-company {
+    font-size: 11px;
+    color: var(--teal);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .award-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: 9.5px;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-weight: 500;
+  }
+  .sub-role {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--mid);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 12px 0 5px;
+  }
+
+  ul { list-style: none; padding: 0; }
+  ul li {
+    font-size: 13px;
+    color: #1a3d42;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 5px;
+    line-height: 1.6;
+  }
+  ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--light-teal);
+    font-size: 11px;
+    top: 1px;
+  }
+
+  /* PROJECTS */
+  .project { margin-bottom: 20px; }
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14.5px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 1px;
+  }
+  .project-meta {
+    font-size: 11px;
+    color: var(--mid);
+    margin-bottom: 7px;
+  }
+
+  /* SIDEBAR */
+  .sidebar section { padding-top: 34px; }
+
+  .edu-item { margin-bottom: 15px; }
+  .edu-degree {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+  .edu-school {
+    font-size: 11px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 1px;
+  }
+  .edu-meta {
+    font-size: 11.5px;
+    color: var(--mid);
+  }
+
+  .skill-group { margin-bottom: 13px; }
+  .skill-cat {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--mid);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    background: var(--tag-bg);
+    color: var(--dark);
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .extra-item { margin-bottom: 12px; }
+  .extra-role {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+  .extra-org {
+    font-size: 11px;
+    color: var(--mid);
+    margin-bottom: 3px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  header   { animation: fadeUp 0.55s ease both; }
+  .wrapper { animation: fadeUp 0.55s ease 0.1s both; }
+
+  @media print {
+    body { background: white; }
+    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name">Shreya Bhattacharya</div>
+  <div class="tagline">Product &amp; Data · Zomato · IIT Kanpur</div>
+  <div class="contacts">
+    <a href="mailto:pvt.shreyabhattacharya@gmail.com">pvt.shreyabhattacharya@gmail.com</a>
+    <a href="https://linkedin.com/in/shreyabhatta" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/shreyabhatta" target="_blank">Twitter</a>
+    <a href="https://shreyabhatta.substack.com" target="_blank">Substack</a>
+    <a href="#">Website</a>
+  </div>
+</header>
+
+<div class="wrapper">
+
+  <main>
+
+    <section>
+      <div class="section-label">Work Experience</div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Product Analyst</div>
+          <div class="job-period">Jun '24 – Present</div>
+        </div>
+        <div class="job-company">Zomato</div>
+
+        <div class="sub-role">Consumer Product</div>
+        <ul>
+          <li>Led VIP Mode by identifying painful cohorts, building logic, driving execution across experimentation and performance tracking.</li>
+          <li>Optimised Near and Fast by reworking ETA algorithms, analysing breach patterns to define "painful" breaches, and running targeted experiments to reduce them. Revamped both UI logic and ranking algorithms, driving a +1% relative uplift in OTR.</li>
+          <li>Built a recommendation model for Top Dish Rail on homepage, improving discovery, exploration, and new-to-restaurant order share.</li>
+          <li>Led revamps across homepage, catalogue, cart and live order assets, including autosuggestion, offers, restaurant cards, catalog snackbar, cart add-on recommendations, live activity, tips and rating; via A/B testing and conversion rate optimization.</li>
+          <li>Managed Zomato Gold; drove growth experiments, sales and cohort analysis, retention analysis, and optimized subscription funnel.</li>
+        </ul>
+
+        <div class="sub-role">Social Ads</div>
+        <ul>
+          <li>Designed audience cohorts using behavioral signals and performance feedback to improve targeting precision and campaign effectiveness.</li>
+          <li>Owned entire data workflows for off-platform ads, including data pipelines and reporting dashboards for monitoring campaign performance.</li>
+        </ul>
+
+        <div class="sub-role">Zomato Everyday</div>
+        <ul>
+          <li>Improved Kitchen Preparation Time model by building a Gradient Boosting Regressor using dynamic restaurant clustering and time-based feature engineering, reducing MSE from 4.1 to 0.7, lowering 2-minute SLA breaches by 8%.</li>
+          <li>Built and owned a CRM notification pipeline, enabling real-time and personalised user communications across key lifecycle touchpoints.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Data Analytics &amp; Strategy Intern <span class="award-badge">Innovation Award</span></div>
+          <div class="job-period">May '23 – Jul '23</div>
+        </div>
+        <div class="job-company">Kapiva · CEO's Office</div>
+        <ul>
+          <li>Analyzed data across multiple channels to identify churn patterns and key customer experience bottlenecks.</li>
+          <li>Drove organizational restructuring by benchmarking operations and identifying gaps through competitive analysis, resulting in the launch of a Tech–Product vertical to streamline operations and maximize efficiency.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Research &amp; Development Intern</div>
+          <div class="job-period">May '22 – Jul '22</div>
+        </div>
+        <div class="job-company">Eigenlytics Data Solutions</div>
+        <ul>
+          <li>Built NLP models based on Named Entity Recognition using spaCy for information extraction from unstructured legal text.</li>
+          <li>Improved the accuracy of a pre-existing model from 35% to 80% by analysing legal documents and optimising for training.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Projects</div>
+
+      <div class="project">
+        <div class="project-title">Automatic Music Transcription</div>
+        <div class="project-meta">Science &amp; Technology Council, IIT Kanpur · May '21 – Jul '21</div>
+        <ul>
+          <li>Applied computational methods to infer parameters from audio, using spectrogram-based transformation to MIDI files.</li>
+          <li>Employed Keras with TensorFlow backend for training DNN, CNN and RNN models — CNN achieved best results.</li>
+          <li>Achieved F-score: CNN predicted = 72.55, post-processed = 72.91; RNN predicted = 67.64, post-processed = 67.78.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-title">ML-based Fractography</div>
+        <div class="project-meta">Prof. Sandeep Sangal, IITK · May '22 – Jul '22</div>
+        <ul>
+          <li>Conceptualised a supervised Support Vector Model to classify metal fracture SEM images into brittle or ductile fracture.</li>
+          <li>Evaluated texture analysis methods including gray-level histograms, GLCM &amp; Fourier power spectra.</li>
+          <li>Visualised fractals as a parameter and implemented box method &amp; differential box method to determine dimensions.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="sidebar">
+
+    <section>
+      <div class="section-label">Education</div>
+      <div class="edu-item">
+        <div class="edu-degree">B.Tech, Materials Science &amp; Engineering</div>
+        <div class="edu-school">IIT Kanpur</div>
+        <div class="edu-meta">2020 – 2024 &nbsp;·&nbsp; 8.0 / 10.0</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Class XII · CBSE</div>
+        <div class="edu-school">DPS, Bokaro Steel City</div>
+        <div class="edu-meta">2020 &nbsp;·&nbsp; 96.0%</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Class X · CBSE</div>
+        <div class="edu-school">DPS, Bokaro Steel City</div>
+        <div class="edu-meta">2018 &nbsp;·&nbsp; 96.2%</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Technical Skills</div>
+      <div class="skill-group">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">R</span><span class="tag">SQL</span>
+          <span class="tag">MySQL</span><span class="tag">Druid</span><span class="tag">Flink</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Data Engineering</div>
+        <div class="skill-tags">
+          <span class="tag">PySpark</span><span class="tag">Apache Kafka</span><span class="tag">Superset</span><span class="tag">Airflow</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Utilities</div>
+        <div class="skill-tags">
+          <span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Figma</span>
+          <span class="tag">Git / GitHub</span><span class="tag">Google Analytics</span>
+          <span class="tag">Asana</span><span class="tag">Confluence</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Competencies</div>
+        <div class="skill-tags">
+          <span class="tag">A/B Testing</span><span class="tag">Statistical Modelling</span>
+          <span class="tag">Product Strategy</span><span class="tag">CRO</span>
+          <span class="tag">EDA</span><span class="tag">Root Cause Analysis</span>
+          <span class="tag">Dashboarding</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Leadership</div>
+
+      <div class="extra-item">
+        <div class="extra-role">Head, Media &amp; Publicity</div>
+        <div class="extra-org">Techkriti '23, IIT Kanpur</div>
+        <ul style="margin-top:5px;">
+          <li>Led 120+ member team for Asia's largest tech &amp; entrepreneurial fest with a budget of INR 2 Cr.</li>
+          <li>Managed media partnerships with Big FM, Zee News, Amar Ujala, Business India &amp; Carnival Cinemas.</li>
+        </ul>
+      </div>
+
+      <div class="extra-item" style="margin-top:14px;">
+        <div class="extra-role">Coordinator, Fine Arts Club</div>
+        <div class="extra-org">Media &amp; Culture Council, IIT Kanpur</div>
+        <ul style="margin-top:5px;">
+          <li>Managed operations, events, workshops and finances with budget of INR 1,50,000.</li>
+          <li>Led Fine Arts contingent in Inter IIT Cult Meet 5.0.</li>
+        </ul>
+      </div>
+
+      <div class="extra-item" style="margin-top:14px;">
+        <div class="extra-role">Project Mentor</div>
+        <div class="extra-org">Stamatics, IIT Kanpur</div>
+        <ul style="margin-top:5px;">
+          <li>Mentored 100+ students in probability theory, statistics, modelling and visualisation techniques.</li>
+        </ul>
+      </div>
+    </section>
+
+  </aside>
+
+</div>
+</body>
+</html>
