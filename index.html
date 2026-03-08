@@ -1,602 +1,927 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Shreya Bhattacharya</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Personal website of Shreya Bhattacharya, Indian Institute of Technology Kanpur (IITK), Zomato, Delhi Public School Bokaro (DPS Bokaro)" name="description">
-        <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-        <link rel="manifest" href="img/site.webmanifest">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shreya Bhattacharya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal1: #e0f2f1;
+      --teal2: #b2dfdb;
+      --teal3: #e0f7f4;
+      --teal4: #c8e6e3;
+      --teal5: #d4eeeb;
+      --teal6: #e8f5f3;
+      --teal7: #b8deda;
+      --teal8: #ddf0ee;
+      --ink:    #1a2e2c;
+      --muted:  #4a6b68;
+      --accent: #00796b;
+      --border: #a0ccc8;
+      --card-bg:#f0fafa;
+      /* section backgrounds */
+      --bg1: #e0f2f1;
+      --bg2: #b2dfdb;
+      --bg3: #e0f7f4;
+      --bg4: #e0f2f1;
+      --bg5: #c8e6e3;
+      --bg6: #d4eeeb;
+      --bg7: #e8f5f3;
+      --bg8: #b8deda;
+      --bg9: #ddf0ee;
+      --cream-pale: #e0f2f1;
+      /* aliases */
+      --burgundy:   #00796b;
+      --pink:       #a0ccc8;
+      --orange:     #00796b;
+      --green:      #00796b;
+      --dark-green: #004d40;
+      --darkgreen:  #004d40;
+      --navy:       #1a2e2c;
+      --pink-light: #b2dfdb;
+      --green-light:#c8e6e3;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html { overflow-x: hidden; }
+    body { font-family: 'Google Sans Flex', sans-serif; font-size: 16px; background: var(--teal1); color: var(--ink); overflow-x: hidden; cursor: none; }
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    /* Custom cursor — dot snaps instantly, ring trails via JS rAF */
+    .cursor { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
+    .cursor-ring { width: 36px; height: 36px; border: 1.5px solid var(--orange); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); opacity: 0.55; transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease; }
+    .cursor-ring.hover { width: 58px; height: 58px; opacity: 0.18; }
 
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 5rem; display: flex; justify-content: space-between; align-items: center; background: transparent; border-bottom: none; transition: background 0.3s, box-shadow 0.3s, border-color 0.3s; }
+    nav.scrolled { background: rgba(224,242,241,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(0,77,64,0.12); }
+    .nav-logo { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: 0.01em; color: var(--dark-brown); text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; font-weight: 600; }
+    .nav-links a:hover { color: var(--orange); }
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    /* HERO */
+    #home { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; background: var(--teal1); }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 5rem 7rem; position: relative; z-index: 2; }
+    .hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--burgundy); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem; font-weight: 500; }
+    .hero-eyebrow::before { content: ''; display: block; width: 3rem; height: 1px; background: var(--pink); }
+    h1.hero-name { font-family: 'Google Sans Flex', sans-serif; font-size: clamp(3.8rem, 7vw, 8rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 2.5rem; }
+    h1.hero-name em { font-style: normal; color: var(--burgundy); display: block; }
+    .hero-desc { font-size: 1.05rem; line-height: 1.8; color: var(--muted); max-width: 420px; font-weight: 400; margin-bottom: 3.5rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--burgundy); color: #fff; padding: 0.9rem 2.2rem; font-family: 'Google Sans Flex', sans-serif; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: background 0.25s, transform 0.25s; display: inline-block; font-weight: 500; border-radius: 4px; }
+    .btn-primary:hover { background: var(--dark-green); transform: translateY(-2px); }
+    .btn-ghost { border: 1.5px solid var(--border); color: var(--muted); padding: 0.9rem 2.2rem; font-family: 'Google Sans Flex', sans-serif; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; transition: border-color 0.25s, color 0.25s, transform 0.25s; display: inline-block; font-weight: 500; border-radius: 4px; }
+    .btn-ghost:hover { border-color: var(--burgundy); color: var(--burgundy); transform: translateY(-2px); }
 
-    <body data-spy="scroll" data-target=".navbar" data-offset="51">
-        <!-- Nav Bar Start -->
-        <div class="navbar navbar-expand-lg bg-light navbar-light">
-            <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">Portfolio</a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    /* HERO RIGHT — 3×3 image grid, square with padding */
+    .hero-right { position: relative; background: var(--teal4); display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .hero-grid-wrap { width: min(560px, 90%); aspect-ratio: 1/1; }
+    .hero-grid { width: 100%; height: 100%; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 3px; }
+    .grid-cell { overflow: hidden; position: relative; }
+    .grid-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s ease; filter: brightness(0.92); }
+    .grid-cell:hover img { transform: scale(1.1); filter: brightness(1.05); }
+    .grid-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,121,107,0.75) 0%, rgba(0,77,64,0.5) 100%); opacity: 0; transition: opacity 0.35s ease; display: flex; align-items: center; justify-content: center; }
+    .grid-cell:hover .grid-overlay { opacity: 1; }
+    .grid-label { font-size: 0.65rem; color: #fff; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; padding: 0 0.5rem; }
 
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto">
-                        <a href="#home" class="nav-item nav-link active">Home</a>
-                        <a href="#skills" class="nav-item nav-link">Skills</a>
-                        <a href="#experience" class="nav-item nav-link">Experience</a>
-                        <a href="#education" class="nav-item nav-link">Education</a>
-                        <a href="#projects" class="nav-item nav-link">Projects</a>
-                        <a href="#blog" class="nav-item nav-link">Blogs</a>
-                        <a href="#gallery" class="nav-item nav-link">Gallery</a>
-                        <a href="#socials" class="nav-item nav-link">Socials</a>
-                    </div>
-                </div>
-            </div>
+    .hero-scroll { position: absolute; bottom: 3rem; left: 5rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+    .scroll-line { width: 3rem; height: 1px; background: var(--border); }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    /* Shared */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 5rem; }
+    section { padding: 6rem 0; margin: 0; }
+    * + section { margin-top: 0; }
+    .section-header { display: flex; align-items: center; gap: 2rem; margin-bottom: 5rem; }
+    .section-number { font-family: 'Google Sans Flex', sans-serif; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.04em; flex-shrink: 0; font-weight: 600; }
+    .section-title { font-family: 'Google Sans Flex', sans-serif; font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ABOUT */
+    #about { background: var(--bg2); margin-top: -3rem; padding-top: 5rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 7rem; align-items: start; }
+    .about-visual { position: relative; }
+    .about-frame { aspect-ratio: 3/4; position: relative; overflow: hidden; border-radius: 2px; }
+    .about-frame::after { content: ''; position: absolute; inset: 0; border: 3px solid var(--burgundy); pointer-events: none; border-radius: 2px; mix-blend-mode: multiply; }
+    .about-resume-cta { margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: rgba(0,121,107,0.06); border: 1px solid var(--border); border-radius: 4px; }
+    .about-resume-cta p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .about-pull { font-family: 'Google Sans Flex', sans-serif; font-size: 1.35rem; font-weight: 600; line-height: 1.5; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 2rem; }
+    .about-body { font-size: 1rem; line-height: 1.85; color: var(--muted); font-weight: 400; margin-bottom: 1.25rem; }
+    .about-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+    .pill { background: rgba(0,121,107,0.1); border: 1px solid var(--border); padding: 0.35rem 0.9rem; font-size: 0.78rem; letter-spacing: 0.02em; color: var(--burgundy); font-weight: 500; border-radius: 20px; }
+
+    /* EDU GALLERY */
+    .edu-gallery { display: flex; gap: 1rem; overflow-x: auto; margin-top: 2rem; padding-bottom: 0.5rem; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+    .edu-gallery-item { flex: 0 0 180px; position: relative; }
+    .edu-gallery-item .img-wrap { width: 180px; height: 120px; overflow: hidden; border-radius: 4px; border: 2px solid var(--border); position: relative; }
+    .edu-gallery-item .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s ease; filter: brightness(0.9); }
+    .edu-gallery-item .img-wrap:hover img { transform: scale(1.12); filter: brightness(1.05); }
+    .edu-gallery-item .img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,121,107,0.75) 0%, rgba(0,77,64,0.5) 100%); opacity: 0; transition: opacity 0.35s ease; display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+    .edu-gallery-item .img-wrap:hover .img-overlay { opacity: 1; }
+    .edu-gallery-item span { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; line-height: 1.4; }
+
+    /* EXPERIENCE */
+    #experience { background: var(--bg3); }
+    .exp-list { border-top: 1px solid var(--border); }
+    .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 4rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+    .exp-date { font-size: 0.78rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; font-weight: 600; }
+    .exp-company { font-size: 0.9rem; color: var(--muted); font-weight: 400; }
+    .exp-role { font-family: 'Google Sans Flex', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.2rem; line-height: 1.2; }
+    .exp-points { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .exp-points li { font-size: 0.95rem; color: var(--muted); line-height: 1.75; padding-left: 1.3rem; position: relative; font-weight: 400; }
+    .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; top: 0.2rem; }
+    .exp-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+    .badge { background: rgba(0,121,107,0.1); color: var(--burgundy); padding: 0.25rem 0.75rem; font-size: 0.72rem; letter-spacing: 0.02em; text-transform: uppercase; font-weight: 500; border-radius: 2px; }
+
+    /* SKILLS */
+    #skills { background: var(--bg5); }
+    #skills .section-title { color: var(--ink); }
+    #skills .section-number { color: var(--accent); }
+    #skills .section-line { background: var(--border); }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: var(--border); }
+    .skill-card { background: var(--bg5); padding: 2.5rem 2rem; transition: background 0.3s, transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s; position: relative; z-index: 1; }
+    .skill-card:hover { background: var(--cream-pale); transform: translateY(-6px) scale(1.02); box-shadow: 0 16px 40px rgba(0,77,64,0.13); z-index: 2; }
+    .skill-glyph { font-size: 1.5rem; margin-bottom: 1.5rem; display: block; color: var(--accent); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+    .skill-card:hover .skill-glyph { transform: scale(1.25) rotate(-5deg); }
+    .skill-name { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1rem; }
+    .skill-items { display: flex; flex-direction: column; gap: 0.5rem; }
+    .skill-item { font-size: 0.88rem; color: var(--muted); letter-spacing: 0; font-weight: 400; }
+    .skill-item.lit { color: var(--ink); font-weight: 500; }
+
+    /* PROJECTS */
+    #projects { background: var(--bg6); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .project-card { background: var(--card-bg); padding: 2.5rem 2.2rem; position: relative; overflow: hidden; transition: background 0.3s; text-decoration: none; display: block; }
+    .project-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+    .project-card:hover::after { transform: scaleX(1); }
+    .project-card:hover { background: var(--bg2); }
+    .project-num { font-family: 'Google Sans Flex', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 0.75rem; letter-spacing: -0.04em; }
+    .project-title { font-family: 'Google Sans Flex', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.8rem; line-height: 1.3; }
+    .project-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.75; font-weight: 400; margin-bottom: 1.5rem; }
+    .project-link { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; }
+    .project-link::after { content: ' →'; }
+
+    /* WRITING */
+    #writing { background: var(--bg7); }
+    .writing-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem; align-items: end; }
+    .writing-quote { font-family: 'Google Sans Flex', sans-serif; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.5; color: var(--ink); }
+    .writing-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.85; font-weight: 400; }
+    #substack-posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; min-height: 280px; }
+    .post-card { border: 1px solid var(--border); padding: 2rem; background: var(--card-bg); transition: transform 0.3s ease, box-shadow 0.3s ease; text-decoration: none; display: block; position: relative; overflow: hidden; }
+    .post-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+    .post-card:hover::before { transform: scaleX(1); }
+    .post-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,121,107,0.1); }
+    .post-date { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; font-weight: 600; }
+    .post-title { font-family: 'Google Sans Flex', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.35; margin-bottom: 0.75rem; }
+    .post-excerpt { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-weight: 400; }
+    .post-read { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1.5rem; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    .post-read::after { content: ' →'; }
+    .loading-posts { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.9rem; grid-column: 1 / -1; min-height: 200px; }
+    .writing-cta { text-align: center; margin-top: 3rem; }
+    .writing-cta-label { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; color: var(--muted); margin-bottom: 1.5rem; }
+
+    /* INTERESTS */
+    #interests { background: var(--bg8); }
+    #interests .section-title { color: var(--ink); }
+    #interests .section-number { color: var(--accent); }
+    #interests .section-line { background: var(--border); }
+    .interests-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); }
+    .interest-item { padding: 3rem 2.5rem; border-right: 1px solid var(--border); transition: background 0.3s; background: var(--bg8); }
+    .interest-item:last-child { border-right: none; }
+    .interest-item:hover { background: var(--bg7); }
+    .interest-glyph { font-size: 1.8rem; margin-bottom: 1.5rem; display: block; }
+    .interest-name { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 0.75rem; }
+    .interest-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-weight: 400; }
+
+    /* CONTACT */
+    #contact { background: var(--bg9); }
+    .contact-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+    .contact-headline { font-family: 'Google Sans Flex', sans-serif; font-size: clamp(2.4rem, 4.5vw, 4.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 1.5rem; }
+    .contact-headline em { color: var(--accent); font-style: normal; }
+    .contact-tagline { font-size: 1rem; color: var(--muted); line-height: 1.8; font-weight: 400; max-width: 480px; margin-bottom: 3.5rem; }
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .contact-link { color: var(--ink); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.85rem 2rem; border: 1.5px solid var(--border); transition: border-color 0.2s, color 0.2s; font-weight: 500; border-radius: 2px; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link.filled { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .contact-link.filled:hover { background: var(--dark-green); border-color: var(--dark-green); color: #fff; }
+    .contact-email { font-family: 'Google Sans Flex', sans-serif; font-size: 1rem; color: var(--muted); font-weight: 400; }
+    .contact-email a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .contact-photo { aspect-ratio: 1/1; overflow: hidden; border-radius: 2px; max-width: 380px; width: 100%; }
+    .contact-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.95); }
+
+    footer { background: var(--navy); color: rgba(74,107,104,0.6); padding: 2rem 5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; letter-spacing: 0.02em; }
+    footer span.serif { font-size: 0.9rem; }
+
+    /* Animations — content is visible by default; JS adds animation */
+    .fade-up { opacity: 1; transform: none; }
+    .js-animate .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .js-animate .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Tablet landscape */
+    @media (max-width: 1100px) {
+      nav { padding: 1.1rem 2.5rem; }
+      .container { padding: 0 2.5rem; }
+      .about-grid { gap: 4rem; }
+      .exp-item { gap: 2.5rem; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Tablet portrait */
+    @media (max-width: 860px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 4rem 0; }
+
+      /* Hero — stack vertically, both halves full width */
+      #home { grid-template-columns: 1fr; grid-template-rows: auto auto; min-height: auto; width: 100%; }
+      .hero-left { padding: 6rem 1.5rem 3rem; width: 100%; box-sizing: border-box; background: var(--teal1); }
+      .hero-right { width: 100%; background: var(--teal4); padding: 2rem 1.5rem 3rem; display: flex; align-items: center; justify-content: center; }
+      .hero-grid-wrap { width: min(420px, 88vw); }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-frame { aspect-ratio: 4/3; max-width: 380px; }
+      .about-resume-cta { max-width: 380px; }
+
+      /* Experience */
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-date { margin-bottom: 0; }
+
+      /* Skills */
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .skill-card:hover { transform: none; box-shadow: none; }
+
+      /* Projects */
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Writing */
+      .writing-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+      #substack-posts { grid-template-columns: repeat(2, 1fr); }
+
+      /* Interests */
+      .interests-grid { grid-template-columns: repeat(2, 1fr); }
+      .interest-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .interest-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .interest-item:last-child { border-bottom: none; }
+
+      /* Contact */
+      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-photo { max-width: 280px; }
+
+      /* Section header */
+      .section-title { white-space: normal; font-size: clamp(1.6rem, 5vw, 2.5rem); }
+    }
+
+    /* Mobile */
+    @media (max-width: 580px) {
+      nav { padding: 0.9rem 1.2rem; }
+      .container { padding: 0 1.2rem; }
+      section { padding: 3rem 0; }
+
+      /* Hero */
+      #home { grid-template-columns: 1fr; width: 100%; }
+      .hero-left { padding: 5.5rem 1.2rem 2rem; background: var(--teal1); width: 100%; box-sizing: border-box; }
+      .hero-right { width: 100%; background: var(--teal4); padding: 1.5rem 1.2rem 3rem; }
+      .hero-grid-wrap { width: min(340px, 88vw); }
+      h1.hero-name { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+      .hero-desc { font-size: 0.95rem; }
+
+      /* About */
+      .about-frame { max-width: 100%; }
+
+      /* Skills / Projects / Writing / Interests — single col */
+      .skills-grid,
+      .projects-grid,
+      #substack-posts,
+      .interests-grid { grid-template-columns: 1fr; }
+      .interest-item { border-right: none; }
+      .interest-item:nth-child(odd) { border-right: none; }
+
+      /* Section header */
+      .section-header { gap: 1rem; margin-bottom: 2.5rem; }
+      .section-title { font-size: clamp(1.5rem, 7vw, 2rem); }
+
+      /* Exp */
+      .exp-item { padding: 2rem 0; }
+
+      /* Contact links */
+      .contact-links { flex-direction: column; }
+      .contact-link { text-align: center; }
+
+      /* Footer */
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+    }
+
+    /* Small mobile */
+    @media (max-width: 380px) {
+      .hero-left { padding: 5rem 1rem 2rem; }
+      h1.hero-name { font-size: 2.5rem; }
+      .container { padding: 0 1rem; }
+      .btn-primary, .btn-ghost { padding: 0.75rem 1.5rem; font-size: 0.78rem; }
+    }
+
+    /* Hamburger menu */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      padding: 6px; background: none; border: none;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--ink); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 860px) {
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: flex !important; flex-direction: column;
+        position: fixed; top: 0; right: -100%; width: 70%; max-width: 280px;
+        height: 100vh; background: var(--teal1); padding: 5rem 2rem 2rem;
+        gap: 0.5rem; z-index: 99; transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+        box-shadow: -4px 0 30px rgba(0,77,64,0.15);
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a {
+        font-size: 1.1rem; padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border); letter-spacing: 0.02em;
+      }
+      .nav-overlay {
+        display: none; position: fixed; inset: 0; background: rgba(26,46,44,0.35);
+        z-index: 98; backdrop-filter: blur(2px);
+      }
+      .nav-overlay.open { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">Shreya Bhattacharya</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Product · Data · Tech · Books · Culture</div>
+      <h1 class="hero-name">
+        Shreya<br />
+        <em>Bhattacharya</em>
+      </h1>
+      <p class="hero-desc">
+        Product Analyst at Zomato. 
+        <br>
+        Taking fuzzy product problems and figuring out what to build next.
+      </p>
+      <div class="hero-ctas">
+        <a href="#experience" class="btn-primary">View My Work</a>
+        <a href="#writing" class="btn-ghost">Read My Writing</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-grid-wrap">
+        <div class="hero-grid">
+        <div class="grid-cell">
+          <img src="img/hero-bg.jpeg" alt="Analytics" />
+          <div class="grid-overlay"><span class="grid-label">Data</span></div>
         </div>
-        <!-- Nav Bar End -->
-
-
-        <!-- Hero Start -->
-        <div class="hero" id="home">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="hero-content">
-                            <div class="hero-text">
-                                <p>I'm</p>
-                                <h1>Shreya Bhattacharya</h1>
-                                <h2></h2>
-                                <div class="typed-text"> Product Data Science, Product Analytics, Books, Music </div>
-                            </div>
-                            <div class="hero-btn">
-                                <a class="btn" href="#socials">Say a Hello?</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 d-none d-md-block">
-                        <div class="hero-image"> 
-                             <img src="img/hero.png" alt="Hero Image">
-                         </div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid-cell">
+          <img src="img/about.jpeg" alt="Books" />
+          <div class="grid-overlay"><span class="grid-label">Books</span></div>
         </div>
-        <!-- Hero End -->
-
-
-        <!-- About Start -->
-        <div class="about wow fadeInUp" data-wow-delay="0.1s" id="about">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="about-img">
-                            <img src="img/about.jpeg" alt="Image">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-content">
-                            <div class="section-header text-left">
-                                <p>Greetings!</p>
-                                <h2>About Me</h2>
-                            </div>
-                            <div class="about-text">
-                                <p>
-                                    I'm currently working as a product analyst in Zomato in the consumer product team, building algorithms that drive discovery across the app, breaking down consumer behaviour across major touchpoints and shaping product experiences.
-                                </p>
-                                <p>
-                                    With a passion for music, literature, and the arts, I find inspiration in diverse creative outlets that fuel my problem-solving abilities.
-                                </p>
-                                <p>
-                                    Feel free to reach out to explore potential collaborations or for further information. Let's connect!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid-cell">
+          <img src="img/as_we_leave.png" alt="Music" />
+          <div class="grid-overlay"><span class="grid-label">Music</span></div>
         </div>
-        <!-- About End -->
-        
-        
-        <!-- Skills Start -->
-        <div class="service" id="skills">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>What I do</p>
-                    <h2>Skills</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-chart-bar"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Product Analytics</h3>
-                                <p>
-                                    Experimentation Design, A/B Testing, Metrics design, RCA, Data Visualization
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-brain"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Data Science</h3>
-                                <p>
-                                    Statistics and Heurestic modelling, Hypothesis Testing, Regression and Cluster Analysis
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-project-diagram"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Data Engineering</h3>
-                                <p>
-                                    ETL Pipelines, Data Cleaning and Transformation, Optimization
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-tools"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Tools and Utilities</h3>
-                                <p>
-                                    Python, SQL, Apache Spark, Excel, PowerBI, Git, Jupyter Notebook, Figma
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid-cell">
+          <img src="img/team-2.jpeg" alt="Art" />
+          <div class="grid-overlay"><span class="grid-label">Art</span></div>
         </div>
-        <!-- Skills End -->
-        
-        
-         <!-- Experience Start -->
-        <div class="experience" id="experience">
-            <div class="container">
-                <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>My Resume</p>
-                    <h2>Working Experience</h2>
-                </header>
-                <div class="timeline">
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">June, 2024 - Present</div>
-                            <h2>PRODUCT ANALYST </h2>
-                            <h4>Zomato, Gurugram</h4>
-                            <p>As part of the consumer product team, built algorithms powering discovery on app.</p>
-                            <p>Owned end-to-end data for 5+ features on the consumer app, including  data pipeline and analysis.</p>
-                            <p>Previously as part of social ads, built and curated relevant target audiences for campaign optimization and owned all related data pipelines.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">May, 2023 - July, 2023</div>
-                            <h2>DATA ANALYTICS AND STRATEGY INTERN (CEO'S OFFICE) </h2>
-                            <h4>Kapiva, Bangalore</h4>
-                            <p>Strategized the organizational restructuring of the company to streamline operations and maximize efficiency.</p>
-                            <p>Facilitated data-driven decisions by evaluating net promoter score, churn rate, customer outreach & product reviews.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">May, 2022 - July, 2022</div>
-                            <h2>RESEARCH AND DEVELOPMENT INTERN</h2>
-                            <h4>Eigenlytics Data Solutions, Mumbai</h4>
-                            <p>Optimized NER models tailored for legal text analysis.</p>
-                            <p>Applied information extraction techniques to analyse unstructured legal texts.</p>
-                        </div>
-                    </div>  
-                </div>
-            </div>
+        <div class="grid-cell">
+          <img src="img/team-4.jpeg" alt="Product" />
+          <div class="grid-overlay"><span class="grid-label">Product</span></div>
         </div>
-        <!-- Job Experience End -->
-
-        <!-- Education Start -->
-        <div class="experience" id="education">
-            <div class="container">
-                <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>My Education</p>
-                    <h2>Academic Qualifications</h2>
-                </header>
-                <div class="timeline">
-                    <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2020 - 2024</div>
-                            <h2>BACHELORS OF TECHNOLOGY</h2>
-                            <h4>Indian Institute of Technology Kanpur</h4>
-                            <p>Received: 8.0/10.0</p>
-                            <p>Materials Science and Engineering, Bachelor of Technology</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2020</div>
-                            <h2>SENIOR SECONDARY, CBSE</h2>
-                            <h4>Delhi Public School, Bokaro Steel City</h4>
-                            <p>Received: 96%</p>
-                            <p>Subjects: Physics, Chemistry, Maths, English, Physical Education, Hindustani Vocal Music</p>
-                        </div>
-                    </div>  
-                    <div class="timeline-item left wow slideInRight" data-wow-delay="0.1s">
-                        <div class="timeline-text">
-                            <div class="timeline-date">2018</div>
-                            <h2>SECONDARY, CBSE</h2>
-                            <h4>Delhi Public School, Bokaro Steel City</h4>
-                                <p>Received: 96.2%</p>
-                                <p>Subjects: Social Science, Science, Maths, English, Sanskrit</p>
-                        </div>
-                    </div>  
-                </div>
-            </div>
+        <div class="grid-cell">
+          <img src="img/contact.jpeg" alt="Travel" />
+          <div class="grid-overlay"><span class="grid-label">Explore</span></div>
         </div>
-        <!-- Education End -->
-
-        
-        <!-- Projects Start -->
-        <div class="portfolio" id="projects">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>My work</p>
-                    <h2>Key Projects</h2>
-                </div>
-
-
-                <div class="row portfolio-container">
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/ux.png" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>User Experience Evaluation and Interface Redesign</h3>
-                                <a class="btn" href="https://docs.google.com/presentation/d/17TA_eykzq9CqaSndFvEVcJdnHBaiGe_ZVneR7lVym-s/edit?usp=sharing" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/cancer_img.png" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Early Cancer Detection by Leveraging Advanced Tools and Techniques  </h3>
-                                <a class="btn" href="https://www.notion.so/shreyab20/Early-Cancer-Detection-by-Leveraging-Advanced-Tools-and-Techniques-7a7b80ac47f544a18a908e079ed49f71?source=copy_link" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/network.png" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Citation Network Construction for Academic Papers Through Web Data Mining </h3>
-                                <a class="btn" href="https://github.com/arishabh30/WebScrapingUgp" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-1 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/amt.png" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>Automatic Music Transcription </h3>
-                                <a class="btn" href="https://github.com/naiza2000/Deep-learning---Automatic-Music-Transcription" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item filter-2 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="portfolio-wrap">
-                            <div class="portfolio-img">
-                                <img src="img/frac.jpeg" alt="Image">
-                            </div>
-                            <div class="portfolio-text">
-                                <h3>ML based Fractography</h3>
-                                <a class="btn" href="https://github.com/shreyabhatta/Fractography-using-ML" data-lightbox="portfolio">+</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid-cell">
+          <img src="img/about2.jpg" alt="IIT Kanpur" />
+          <div class="grid-overlay"><span class="grid-label">IIT Kanpur</span></div>
         </div>
-        <!-- Projects End -->
-
-        <!-- Interests Start -->
-        <div class="service" id="interests">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>What I’m Into</p>
-                    <h2>Interests & Pursuits</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-language"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Lost in Translation</h3>
-                                <p>
-                                    Currently learning German (A1 certified), aiming to become a polyglot. Spanish and Tamil are next on the list. Fluent in English, Hindi, and Bangla.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-book-open"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Reading Everything</h3>
-                                <p>
-                                    Read across fiction and nonfiction; books and articles on tech, design, politics, philosophy, and sociology. Writing is how I make sense of the mess.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-music"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>High on Music</h3>
-                                <p>
-                                    Trained in Indian Classical Music (Sangeet Visharad). Sometimes play ukulele, keyboard, harmonium, and Hawaiian guitar.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-paint-brush"></i>
-                            </div>
-                            <div class="service-text">
-                                <h3>Fine Arts and Craft</h3>
-                                <p>
-                                    Pencil sketching, acrylic, water, and oil painting, plus art installations. Firmly not an origami person.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="grid-cell">
+          <img src="img/team-3.jpg" alt="Tech" />
+          <div class="grid-overlay"><span class="grid-label">Tech</span></div>
         </div>
-        <!-- Interests End -->
-        
+        <div class="grid-cell">
+          <img src="img/team-1.jpeg" alt="Culture" />
+          <div class="grid-overlay"><span class="grid-label">Culture</span></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <section id="about">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">01</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-visual fade-up">
+          <div class="about-frame">
+            <img src="img/hero2.png" alt="Shreya Bhattacharya" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
+          <div class="about-resume-cta">
+            <p>Interested to know more?</p>
+            <a href="resume.html" class="btn-primary" style="margin-top:0.75rem;display:inline-block;">View My Resume →</a>
+          </div>
+        </div>
+        <div class="fade-up">
+          <p class="about-pull">"I like making sense of messy problems."</p>
+          <p class="about-body">I'm currently part of Zomato's Consumer Product team, where I work at the intersection of data, experimentation, and product strategy. I've owned analytics end-to-end for numerous features, from defining metrics and running A/B tests to building recommendation algorithms and shipping ML models to production.</p>
+          <p class="about-body">My work spans the full consumer funnel: homepage discovery, search &amp; autosuggest, restaurant catalogue, cart, live order tracking, post-delivery, and Zomato Gold. I've also worked on Flywheel (Zomato's off-platform Social Ads product), where I built audience cohorts and owned all data pipelines powering Meta &amp; Google campaigns for 300+ brands.</p>
+          <p class="about-body">I graduated with a B.Tech from IIT Kanpur. Outside of work, I read obsessively, hold a diploma in Indian Classical Vocal Music, paint, and am a serial coffee enthusiast.</p>
+          <div class="about-pills">
+            <span class="pill">Product Strategy</span>
+            <span class="pill">ML Modelling</span>
+            <span class="pill">A/B Testing</span>
+            <span class="pill">IIT Kanpur 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Blog Start -->
-        <div class="blog" id="blog">
-          <div class="container">
-
-            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-              <p>What's on my mind</p>
-              <h2>Latest Articles</h2>
-            </div>
-
-            <div class="row">
-              <!-- Blog Card 1 -->
-              <div class="col-lg-6">
-                <div class="blog-item wow fadeInUp" data-wow-delay="0.1s">
-                  <div class="blog-img">
-                    <img src="img/as_we_leave.png"alt="Blog image">
-                  </div>
-                  <div class="blog-text">
-                    <h2>A letter to my first-year self</h2>
-                    <p>
-                    A reflection on my time at IITK; the journey, becoming, and the road ahead        
-                    </p>
-                    <a
-                      class="btn"
-                      href="https://voxiitk.com/as-we-leave-2024-31/"
-                      target="_blank">
-                      Read on Vox Populi, IITK <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Blog Card 2 -->
-              <div class="col-lg-6">
-                <div class="blog-item wow fadeInUp" data-wow-delay="0.3s">
-                  <div class="blog-img">
-                    <img src="img/composed.jpg" alt="Blog">
-                  </div>
-                  <div class="blog-text">
-                    <h2>Economics of Being Human</h2>
-                    <p>
-                      What Stayed with Me After Reading Kafka’s 'The Metamorphosis'
-                    </p>
-                    <a
-                      class="btn"
-                      href="hhttps://substack.com/@bhatta20/p-182590949"
-                      target="_blank">
-                      Read on Substack <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Work Experience</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="exp-list">
+        <div class="exp-item fade-up">
+          <div>
+            <div class="exp-date">Jun 2024 – Present</div>
+            <div class="exp-company">Zomato · Gurugram</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Product Analyst</h3>
+            <ul class="exp-points">
+              <li><strong>Consumer Product Team:</strong> Built algorithms powering discovery on app, led growth experiments throughout major touchpoints of the app.</li>
+              <li><strong>Social Ads:</strong> Built and curated relevant target audiences for campaign optimization , owned all pipelines and reporting for off-platform Meta &amp; Google campaigns.</li>
+            </ul>
+            <div class="exp-badges">
+              <span class="badge">Consumer Product</span>
+              <span class="badge">A/B Testing</span>
+              <span class="badge">ML Modelling</span>
+              <span class="badge">Social Ads</span>
+              <span class="badge">CRO</span>
+              <span class="badge">Data Pipelines</span>
             </div>
           </div>
         </div>
-        <div class="text-center mt-4 wow fadeInUp" data-wow-delay="0.2s">
-          <a 
-            href="https://substack.com/@bhatta20/posts" 
-            target="_blank" 
-            class="btn btn-primary substack-btn">
-            Visit my Substack to view more
+        <div class="exp-item fade-up">
+          <div>
+            <div class="exp-date">May – Jul 2023</div>
+            <div class="exp-company">Kapiva · Bangalore</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Data Analytics &amp; Strategy Intern — CEO's Office</h3>
+            <ul class="exp-points">
+              <li>Received the <strong>Kapiva Innovation Award</strong> for Q2-2023 performance.</li>
+              <li>Strategized the organizational restructuring of the company to streamline operations and maximize efficiency. Facilitated data-driven decisions by evaluating net promoter score, churn rate, customer outreach & product reviews.</li>
+
+            </ul>
+            <div class="exp-badges"><span class="badge">Strategy</span><span class="badge">Churn Analysis</span><span class="badge">NPS</span><span class="badge">Market Research</span></div>
+          </div>
+        </div>
+        <div class="exp-item fade-up">
+          <div>
+            <div class="exp-date">May – Jul 2022</div>
+            <div class="exp-company">Eigenlytics · Mumbai</div>
+          </div>
+          <div>
+            <h3 class="exp-role">R&amp;D Intern — NLP</h3>
+            <ul class="exp-points">
+              <li>Optimized NER models tailored for legal text analysis. Applied information extraction techniques to analyse unstructured legal texts.</li>
+
+            </ul>
+            <div class="exp-badges"><span class="badge">NLP</span><span class="badge">spaCy</span><span class="badge">Python</span><span class="badge">Information Extraction</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="background: var(--bg1);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="exp-list">
+        <div class="exp-item fade-up">
+          <div>
+            <div class="exp-date">2020 – 2024</div>
+            <div class="exp-company">IIT Kanpur</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Bachelors in Technology</h3>
+            <ul class="exp-points">
+              <li><strong>Specialization:</strong> Materials Science &amp; Engineering, Received: 8.0 / 10.0</li>
+              <li><strong>Courses I loved: </strong>Human Computer Interaction, Introduction to Cognitive Science, Cognitive Neuroscience, Advanced Statistical Methods for Business Analytics, Responsible Dissent, Financial Management, Material Science Technologies for Application in Life Sciences, Introduction to Psychology</li>
+              <li><strong>Activities:</strong> Head, Media &amp; Publicity in Techkriti'23, Coordinator of Fine Arts Club</li>
+            </ul>
+
+
+          </div>
+        </div>
+        <div class="exp-item fade-up">
+          <div>
+            <div class="exp-date">2020</div>
+            <div class="exp-company">DPS Bokaro Steel City</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Class XII, CBSE</h3>
+            <ul class="exp-points">
+              <li><strong>Received: 96.0%</strong> — Physics, Chemistry, Maths, English, Hindustani Vocal Music.</li>
+              <li>Awarded <strong>gold medal</strong> for extra ordinary academic performance for 6 consecutive years</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item fade-up">
+          <div>
+            <div class="exp-date">2018</div>
+            <div class="exp-company">DPS Bokaro Steel City</div>
+          </div>
+          <div>
+            <h3 class="exp-role">Class X, CBSE</h3>
+            <ul class="exp-points">
+              <li><strong>Received: 96.2%</strong> —  Social Science, Science, Maths, English, Sanskrit.</li>
+              <li><strong>Activities:</strong> Vocal Music, Arts and Craft, Science Olympiads</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Skills</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid fade-up">
+        <div class="skill-card">
+          <span class="skill-glyph">◈</span>
+          <div class="skill-name">Product</div>
+          <div class="skill-items">
+            <span class="skill-item">A/B Testing &amp; Experimentation</span>
+            <span class="skill-item">Metrics Design &amp; RCA</span>
+            <span class="skill-item">Funnel Analysis</span>
+            <span class="skill-item">Product Strategy</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-glyph">◎</span>
+          <div class="skill-name">Data Science</div>
+          <div class="skill-items">
+            <span class="skill-item">Gradient Boosting, XGBoost</span>
+            <span class="skill-item">Statistical Modelling</span>
+            <span class="skill-item">Clustering &amp; Segmentation</span>
+            <span class="skill-item">Feature Engineering</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-glyph">⬡</span>
+          <div class="skill-name">Engineering</div>
+          <div class="skill-items">
+            <span class="skill-item">Python, SQL, R</span>
+            <span class="skill-item">PySpark, Kafka, Optimization</span>
+            <span class="skill-item">Data Cleaning and Transformation</span>
+            <span class="skill-item">ETL Pipeline Design</span>, 
+          </div>
+        </div>
+        <div class="skill-card">
+          <span class="skill-glyph">◻</span>
+          <div class="skill-name">Tools &amp; Craft</div>
+          <div class="skill-items">
+            <span class="skill-item">Figma, Power BI, Tableau, </span>
+            <span class="skill-item">Git, Google Analytics</span>
+            <span class="skill-item">Superset, Confluence</span>
+            <span class="skill-item">Excel, Jupyter, Google Collab</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid fade-up">
+        <a class="project-card" href="https://github.com/shreyabhatta/Fractography-using-ML" target="_blank">
+          <div class="project-num">01</div>
+          <div class="project-title">ML-Based Fractography</div>
+          <p class="project-desc">Supervised SVM to classify metal fracture SEM images as brittle or ductile. Evaluated texture features via gray-level histograms, GLCM, and fourier power spectra. Visualised fractals using box and differential box methods, and applied skeletonisation and canny edge detection to analyse dimple features.</p>
+          <span class="project-link">View on GitHub</span>
+        </a>
+        <a class="project-card" href="https://github.com/naiza2000/Deep-learning---Automatic-Music-Transcription" target="_blank">
+          <div class="project-num">02</div>
+          <div class="project-title">Automatic Music Transcription</div>
+          <p class="project-desc">Applied deep learning (CNN, RNN, DNN) with Keras/TensorFlow for audio → MIDI transcription. Explored CQT, MELS &amp; STFT for feature extraction — CQT performed best in polyphonic transcription. CNN achieved F-score: predicted 72.55, post-processed 72.91. Post-processing improved note accuracy via noise correction.</p>
+          <span class="project-link">View on GitHub</span>
+        </a>
+        <a class="project-card" href="https://github.com/arishabh30/WebScrapingUgp" target="_blank">
+          <div class="project-num">03</div>
+          <div class="project-title">Citation Network Construction</div>
+          <p class="project-desc">Built a Python scraper using BeautifulSoup &amp; Selenium to mine research papers from multiple publication houses. Applied network theory and Python graph libraries to visualise relationships between papers based on keywords and citations. Built a web app with HTML/CSS/JS for automated data retrieval.</p>
+          <span class="project-link">View on GitHub</span>
+        </a>
+        <a class="project-card" href="https://docs.google.com/presentation/d/17TA_eykzq9CqaSndFvEVcJdnHBaiGe_ZVneR7lVym-s/edit" target="_blank">
+          <div class="project-num">04</div>
+          <div class="project-title">UX Evaluation &amp; Redesign</div>
+          <p class="project-desc">End-to-end UX audit identifying friction points in user journeys. Conducted heuristic evaluation, user flow analysis, and proposed data-informed interface redesigns. Presented actionable wireframes and prioritised improvements by impact and effort.</p>
+          <span class="project-link">View Presentation</span>
+        </a>
+        <a class="project-card" href="https://www.notion.so/shreyab20/Early-Cancer-Detection-by-Leveraging-Advanced-Tools-and-Techniques-7a7b80ac47f544a18a908e079ed49f71" target="_blank">
+          <div class="project-num">05</div>
+          <div class="project-title">Early Cancer Detection</div>
+          <p class="project-desc">ML pipeline for early-stage cancer detection leveraging advanced tools and techniques. Covered data preprocessing, exploratory analysis, model training and selection, and clinical interpretability — with a focus on making predictions actionable for medical practitioners.</p>
+          <span class="project-link">View on Notion</span>
+        </a>
+        <a class="project-card" href="#" style="cursor:default;">
+          <div class="project-num">06</div>
+          <div class="project-title">Customised Discount Recommendation</div>
+          <p class="project-desc">Built an ML model to recommend personalised discounts based on customers' business significance and transaction behaviour. Used multivariate regression, comprehensive EDA, feature extraction and transformation, and fine-tuned the model to maximise ROI across customer segments.</p>
+          <span class="project-link" style="pointer-events:none; opacity:0.5;">Self Project</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Writing</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="writing-intro fade-up">
+        <p class="writing-quote">"Writing is how I make sense of the mess."</p>
+        <p class="writing-sub">I write on Substack about tech, books, and culture, and the quiet observations in between. It's where I think out loud about the products I build, things I read, and what it all means.</p>
+      </div>
+      <div id="substack-posts">
+        <div class="loading-posts">Loading articles from Substack…</div>
+      </div>
+      <div class="writing-cta fade-up">
+        <p class="writing-cta-label">More essays, reflections, and half-formed ideas.</p>
+        <a href="https://substack.com/@bhatta20/posts" target="_blank" class="btn-primary">Visit Substack →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section id="interests">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">07</span>
+        <h2 class="section-title">Beyond Work</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="interests-grid fade-up">
+        <div class="interest-item">
+          <span class="interest-glyph">♩</span>
+          <div class="interest-name">Music</div>
+          <p class="interest-desc">Trained in Indian Classical Music (Sangeet Visharad). Sometimes play ukulele, keyboard, harmonium, and Hawaiian guitar.</p>
+        </div>
+        <div class="interest-item">
+          <span class="interest-glyph">◉</span>
+          <div class="interest-name">Reading</div>
+          <p class="interest-desc">Read across fiction and nonfiction; books and articles on tech, design, politics, philosophy, and sociology. Writing is how I make sense of the mess.</p>
+        </div>
+        <div class="interest-item">
+          <span class="interest-glyph">⬤</span>
+          <div class="interest-name">Fine Arts</div>
+          <p class="interest-desc">Pencil sketching, acrylic, watercolour, and art installations. Firmly not an origami person. Headed Fine Arts Club at IIT Kanpur.</p>
+        </div>
+        <div class="interest-item">
+          <span class="interest-glyph">◈</span>
+          <div class="interest-name">Languages</div>
+          <p class="interest-desc">Currently learning German (A1 certified). An aspiring polyglot. Spanish and Tamil are next on the list. Fluent in English, Hindi, and Bangla.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header fade-up">
+        <span class="section-number">08</span>
+        <h2 class="section-title">Contact</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-layout">
+        <div class="fade-up">
+          <h2 class="contact-headline">Let's build<br /><em>something good.</em></h2>
+          <p class="contact-tagline">Open to product data science and product manager roles. Also happy to talk books, data, or anything in between.</p>
+          <div class="contact-links">
+            <a href="https://linkedin.com/in/shreyabhatta" target="_blank" class="contact-link">LinkedIn</a>
+            <a href="https://substack.com/@bhatta20/posts" target="_blank" class="contact-link">Substack</a>
+            <a href="https://github.com/shreyabhatta" target="_blank" class="contact-link">GitHub</a>
+            <br>
+            <a href="https://twitter.com/shreyabhatta" target="_blank" class="contact-link">X</a>
+            <a href="https://www.instagram.com/bhatta.i.am" target="_blank" class="contact-link">Instagram</a>
+          </div>
+        </div>
+        <div class="contact-photo fade-up">
+          <img src="img/hero.png" alt="Shreya Bhattacharya" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2025 Shreya Bhattacharya</span>
+    <span class="serif">Product · Data · Tech · Books · Culture</span>
+  </footer>
+
+  <script>
+    // ── Custom cursor ──────────────────────────────────────────────
+    (function() {
+      const dot  = document.getElementById('cursor');
+      const ring = document.getElementById('cursorRing');
+      if (!dot || !ring) return;
+
+      let mx = window.innerWidth  / 2;
+      let my = window.innerHeight / 2;
+      let rx = mx, ry = my;
+      let rafId;
+
+      // Dot follows mouse exactly
+      document.addEventListener('mousemove', function(e) {
+        mx = e.clientX;
+        my = e.clientY;
+        dot.style.left = mx + 'px';
+        dot.style.top  = my + 'px';
+      });
+
+      // Ring trails via lerp
+      function animRing() {
+        rx += (mx - rx) * 0.13;
+        ry += (my - ry) * 0.13;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        rafId = requestAnimationFrame(animRing);
+      }
+      animRing();
+
+      // Hover state on interactive elements
+      document.addEventListener('mouseover', function(e) {
+        if (e.target.closest('a, button')) ring.classList.add('hover');
+        else ring.classList.remove('hover');
+      });
+
+      // Hide when leaving window
+      document.addEventListener('mouseleave', function() {
+        dot.style.opacity  = '0';
+        ring.style.opacity = '0';
+      });
+      document.addEventListener('mouseenter', function() {
+        dot.style.opacity  = '1';
+        ring.style.opacity = '0.55';
+      });
+    })();
+
+    // ── Scrolled nav ───────────────────────────────────────────────
+    window.addEventListener('scroll', function() {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Hamburger menu ─────────────────────────────────────────────
+    (function() {
+      var btn     = document.getElementById('navHamburger');
+      var links   = document.getElementById('navLinks');
+      var overlay = document.getElementById('navOverlay');
+      if (!btn) return;
+      function toggle(open) {
+        btn.classList.toggle('open', open);
+        links.classList.toggle('open', open);
+        overlay.classList.toggle('open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      btn.addEventListener('click', function() { toggle(!links.classList.contains('open')); });
+      overlay.addEventListener('click', function() { toggle(false); });
+      links.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { toggle(false); });
+      });
+    })();
+
+    // ── Fade-in on scroll (progressive enhancement) ────────────────
+    document.documentElement.classList.add('js-animate');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+    // Substack RSS live feed
+    async function loadSubstack() {
+      const container = document.getElementById('substack-posts');
+      const rss = 'https://bhatta20.substack.com/feed';
+      const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent(rss);
+      try {
+        const res = await fetch(proxy);
+        const data = await res.json();
+        const xml = new DOMParser().parseFromString(data.contents, 'text/xml');
+        const items = xml.querySelectorAll('item');
+        if (!items.length) throw new Error('no items');
+        container.innerHTML = '';
+        Array.from(items).slice(0, 6).forEach((item, i) => {
+          const title = item.querySelector('title')?.textContent || 'Untitled';
+          const link = item.querySelector('link')?.textContent || '#';
+          const pubDate = item.querySelector('pubDate')?.textContent || '';
+          const desc = item.querySelector('description')?.textContent || '';
+          const date = pubDate ? new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+          const tmp = document.createElement('div');
+          tmp.innerHTML = desc;
+          const excerpt = (tmp.textContent || '').substring(0, 130).trim() + '…';
+          const card = document.createElement('a');
+          card.className = 'post-card fade-up';
+          card.href = link; card.target = '_blank'; card.rel = 'noopener';
+          card.innerHTML = `
+            ${date ? `<div class="post-date">${date}</div>` : ''}
+            <div class="post-title">${title}</div>
+            ${excerpt ? `<p class="post-excerpt">${excerpt}</p>` : ''}
+            <span class="post-read">Read on Substack</span>`;
+          container.appendChild(card);
+          setTimeout(() => { card.classList.add('visible'); obs.observe(card); }, i * 100 + 200);
+        });
+      } catch {
+        // Fallback with known articles
+        container.innerHTML = `
+          <a class="post-card fade-up visible" href="https://substack.com/@bhatta20/p-182590949" target="_blank">
+            <div class="post-date">Recent</div>
+            <div class="post-title">Economics of Being Human</div>
+            <p class="post-excerpt">What stayed with me after reading Kafka's The Metamorphosis</p>
+            <span class="post-read">Read on Substack</span>
           </a>
-        </div>
+          <a class="post-card fade-up visible" href="https://voxiitk.com/as-we-leave-2024-31/" target="_blank">
+            <div class="post-date">2024</div>
+            <div class="post-title">A Letter to My First-Year Self</div>
+            <p class="post-excerpt">A reflection on four years at IIT Kanpur. The journey, the becoming, and what comes next. Published in Vox Populi, IITK.</p>
+            <span class="post-read">Read Article</span>
+          </a>
+          <div class="post-card fade-up visible" style="background:transparent; border-style:dashed; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:1rem;">
+            <p style="font-family:'Cormor            <p style="font-size:0.9rem;color:var(--muted);">More writing on Substack</p>
+            <a href="https://substack.com/@bhatta20/posts" target="_blank" class="btn-primary" style="margin-top:0.5rem;">Visit Substack →</a>
+          </div>`;
+      }
+    }
+    loadSubstack();
+  </script>
 
-        <!-- Blog End -->
-
-        <!-- Gallery Start -->
-        <div class="team" id="gallery">
-            <div class="container">
-                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                    <p>My Activties</p>
-                    <h2>Gallery</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.0s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-1.jpeg" alt="Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Head, Media and Publicity</h2>
-                                <h4>Techkriti'23, IIT Kanpur</h4>
-                                <h4>July 2022 - June'2023</h4>
-                                <div class="team-social">
-                                    <a class="btn" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpeg" alt="Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Coordinator, Fine Arts Club</h2>
-                                <h4>Media and Culture Council, IIT Kanpur</h4>
-                                <h4>May 2022 - April 2023</h4>
-                                <div class="team-social">
-                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" alt="Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Member of Technical Staff, Team Humanoid</h2>
-                                <h4>Science and Technology Council, IIT Kanpur</h4>
-                                <h4>May 2022 - April 2023</h4>
-                                <div class="team-social">
-                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpeg" alt="Image">
-                            </div>
-                            <div class="team-text">
-                                <h2>Secretary, Robotics Club</h2>
-                                <h4>Science and Technology Council, IIT Kanpur</h4>
-                                <h4>May 2022 - April 2023</h4>
-                                <div class="team-social">
-                                    <a class="btn" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Gallery End -->
-
-        <!-- Footer Start -->
-        <div class="footer" id="socials">
-        <div class="footer wow fadeIn" data-wow-delay="0.3s">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="footer-info">
-                        <h2>Shreya Bhattacharya</h2>
-                        <h3>You’ll find me on my socials!</h3>
-                        <div class="footer-social">
-                            <a href="https://github.com/shreyabhatta"><i class="fab fa-github"></i></a>
-                            <a href="https://www.instagram.com/bhatta.i.am/"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/shreyabhattacharya2001/"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://twitter.com/Bhatta_i_am"><i class="fab fa-twitter"></i>
-                            <a href="https://substack.com/@bhatta20?" target="_blank"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="container copyright">
-                    <p>&copy; <a href="#">shreyabhatta.github.io</a>, All Right Reserved | Made with &hearts; by Shreya, design adapted from <a href="https://htmlcodex.com">HTML Codex</a></p>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- Footer End -->
-        
-        
-        <!-- Back to top button -->
-        <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
-        
-        
-        <!-- Pre Loader -->
-        <div id="loader" class="show">
-            <div class="loader"></div>
-        </div>
-
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/typed/typed.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/isotope/isotope.pkgd.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-    </body>
+</body>
 </html>
-
