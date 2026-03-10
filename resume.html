@@ -276,6 +276,38 @@
     body { background: white; }
     header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
+
+  .download-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 1px solid rgba(184,227,233,0.35);
+  color: rgba(184,227,233,0.85);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  z-index: 10;
+}
+.download-btn:hover {
+  background: rgba(184,227,233,0.1);
+  border-color: rgba(184,227,233,0.65);
+  color: #fff;
+}
+.download-btn svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+  
 </style>
 </head>
 <body>
@@ -320,6 +352,16 @@
       });
     });
   </script>
+  
+  <a class="download-btn" href="Current_Resume.pdf" download="Shreya_Bhattacharya_Resume.pdf">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Download CV
+  </a>
+  
 </header>
 
 <div class="wrapper">
@@ -489,4 +531,4 @@
         <div class="extra-role">Project Mentor</div>
         <div class="extra-org">Stamatics, IIT Kanpur</div>
         <ul style="margin-top:5px;">
-          <li>Mentored 100+ students 
+          <li>Mentored 100+ students to learn probability theory, statistics, modeling and visualization techniques.</li>
